@@ -1,18 +1,16 @@
-import React from 'react';
-import Logo from "./Logo";
-import Navigate from "./Navigate";
-import SingIn from "./SingIn";
+import Navigate from "./Navigate/Navigate";
+import Logo from "./Logo/index";
 
-function Header(props) {
+
+function HeaderContainer() {
     return (
         <header>
             <Logo/>
             <Navigate/>
-            <SingIn/>
         </header>
     );
 }
 
 
 
-export default Header;
+export default HeaderContainer;
