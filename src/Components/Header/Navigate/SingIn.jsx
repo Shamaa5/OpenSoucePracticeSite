@@ -1,5 +1,5 @@
-import React from "react";
-import GitHubLogin from "react-github-login";
+import React from 'react';
+import GitHubLogin from 'react-github-login';
 
 function SingIn() {
   const onSuccess = (response) => console.log(response);

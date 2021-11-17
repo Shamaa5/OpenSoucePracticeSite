@@ -1,22 +1,24 @@
 const initialState = {
-    items: [],
-    loading: false
-
+  items: [],
+  loading: false,
 };
-export default (state = initialState, action) => {
-    switch (action.type) {
-        case 'Repo/load/start':
-            return {
-                ...state,
-                loading: true
-            }
-        case 'Repo/load/success':
-            return {
-                ...state,
-                items: action.payload,
-                loading: false
-            };
-        default:
-            return state
-    }
-}
+
+const state = (state = initialState, action) => {
+  switch (action.type) {
+    case 'Repo/load/start':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'Repo/load/success':
+      return {
+        ...state,
+        items: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export default state;

@@ -14,7 +14,7 @@ code {
 img {
   width: 100%;
 }
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -37,6 +37,13 @@ header {
 }
 ul {
   list-style-type: none;
+}
+.titleContainer {
+  text-align: center;
+  margin: 50px 0;
+}
+.ProjectTypeTitle {
+  text-align: center;
 }
 .Nav {
   align-self: center;

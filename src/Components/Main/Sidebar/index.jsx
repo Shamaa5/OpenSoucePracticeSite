@@ -1,17 +1,13 @@
-import React from "react";
-import { Menu } from "antd";
-import { SettingOutlined } from "@ant-design/icons";
-import Sider from "antd/es/layout/Sider";
+import React from 'react';
+import { Menu } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
+import Sider from 'antd/es/layout/Sider';
 
 function Sidebar(props) {
   const { SubMenu } = Menu;
   return (
     <Sider className="site-layout-background" width={200}>
-      <Menu
-        mode="inline"
-        defaultOpenKeys={["sub1"]}
-        style={{ height: "100%" }}
-      >
+      <Menu mode="inline" defaultOpenKeys={['sub1']} style={{ height: '100%' }}>
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Choose language">
           <Menu.Item key="1">JavaScript</Menu.Item>
           <Menu.Item key="2">Python</Menu.Item>

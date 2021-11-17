@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 
-function LightProject(props) {
+function PopularProject(props) {
   return (
     <Card title="Card title" bordered={false} style={{ width: 300 }}>
       <div> name </div>
@@ -12,4 +12,4 @@ function LightProject(props) {
   );
 }
 
-export default LightProject;
+export default PopularProject;

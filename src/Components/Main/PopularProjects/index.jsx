@@ -1,18 +1,19 @@
 import React from 'react';
 import Title from 'antd/es/typography/Title';
-import LightProject from './LightProject';
+import PopularProject from './PopularProject';
 
-function LightProjectsContainer() {
+
+function PopularProjects(props) {
   return (
     <div className={'lightProjectsContainer'}>
       <Title level={5} className={'ProjectTypeTitle'}>
-        Most popular projects
+        Popular projects
       </Title>
       <div className="site-card-border-less-wrapper">
-        <LightProject />
+        <PopularProject />
       </div>
     </div>
   );
 }
 
-export default LightProjectsContainer;
+export default PopularProjects;
