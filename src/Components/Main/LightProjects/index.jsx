@@ -5,8 +5,8 @@ import LightProject from './LightProject';
 function LightProjectsContainer() {
   return (
     <div className={'lightProjectsContainer'}>
-      <Title level={5} className={'ProjectTypeTitle'}>
-        Most popular projects
+      <Title level={2} className={'ProjectTypeTitle'}>
+        Light projects
       </Title>
       <div className="site-card-border-less-wrapper">
         <LightProject />

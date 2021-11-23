@@ -1,16 +1,24 @@
 import React from 'react';
 import Title from 'antd/es/typography/Title';
 import OtherProject from './OtherProject';
-
+import { useSelector } from 'react-redux';
 
 function OtherProjectsContainer(props) {
-    return (
+  const repositories = useSelector(
+    (state) => state.repositories.allRepositories,
+  );
+  return (
     <div className={'lightProjectsContainer'}>
-      <Title level={5} className={'ProjectTypeTitle'}>
+      <Title level={2} className={'ProjectTypeTitle'}>
         Other projects
       </Title>
-      <div className="site-card-border-less-wrapper">
-        <OtherProject />
+      <div className="cards-container">
+        {repositories.map((repo, index) => {
+          if (index < 19) {
+            return false;
+          }
+          return <OtherProject repo={repo} key={repo.id} />;
+        })}
       </div>
     </div>
   );

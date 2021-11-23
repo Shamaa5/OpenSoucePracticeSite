@@ -2,6 +2,7 @@ import { createLogger } from 'redux-logger';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import repositories from './repositories';
+import auth from './auth';
 
 const logger = createLogger({
   diff: true,
@@ -10,6 +11,7 @@ const logger = createLogger({
 
 const rootReducer = combineReducers({
   repositories: repositories,
+  auth: auth,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

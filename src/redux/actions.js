@@ -2,7 +2,7 @@ export const loadRepo = () => {
   return (dispatch) => {
     dispatch({ type: 'Repo/load/start' });
     fetch(
-      'https://api.github.com/search/repositories?q=stars%3A%3E0&sort=stars&order=desc&page=1',
+      'https://api.github.com/search/repositories?q=stars%3A%3E0&sort=language:go&order=desc&per_page=100',
     )
       .then((response) => response.json())
       .then((json) => {
@@ -11,5 +11,18 @@ export const loadRepo = () => {
           payload: json,
         });
       });
+  };
+};
+
+export const logOut = () => {
+  return {
+    type: 'logOut',
+  };
+};
+
+export const userLogIn = (response) => {
+  return {
+    type: 'userLoggedIn',
+    payload: response,
   };
 };

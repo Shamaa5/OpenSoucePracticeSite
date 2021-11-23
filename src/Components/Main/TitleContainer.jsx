@@ -5,7 +5,7 @@ function TitleContainer(props) {
   return (
     <div className={'titleContainer'}>
       <Title>Welcome</Title>
-      <Title level={4}>
+      <Title level={3}>
         This is the place where you can find popular Open Source projects, for
         various programming languages, for practice, or to supplement your
         resume.

@@ -1,22 +1,26 @@
 const initialState = {
-  allRepositories: [],
+  user: [],
+  isAuth: false,
   loading: false,
-  languageRepositories: [],
 };
 
 const state = (state = initialState, action) => {
   switch (action.type) {
-    case 'Repo/load/start':
+    case 'userLoggedIn':
       return {
         ...state,
-        loading: true,
+        user: action.payload,
+        isAuth: true,
       };
-    case 'Repo/load/success':
+    case 'logOut':
       return {
         ...state,
-        allRepositories: action.payload.items,
-        loading: false,
+        user: [],
+        isAuth: false,
       };
+    case 'test':
+      return {};
+
     default:
       return state;
   }
