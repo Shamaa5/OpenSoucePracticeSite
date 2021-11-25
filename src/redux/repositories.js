@@ -1,7 +1,8 @@
 const initialState = {
   allRepositories: [],
   loading: false,
-  languageRepositories: [],
+  languagesLoading: false,
+  languagesRepositories: [],
 };
 
 const state = (state = initialState, action) => {
@@ -16,6 +17,17 @@ const state = (state = initialState, action) => {
         ...state,
         allRepositories: action.payload.items,
         loading: false,
+      };
+    case 'Language/load/start':
+      return {
+        ...state,
+        languagesLoading: true,
+      };
+    case 'Language/load/success':
+      return {
+        ...state,
+        languagesRepositories: action.payload.items,
+        languagesLoading: false,
       };
     default:
       return state;

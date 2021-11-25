@@ -9,10 +9,10 @@ function Navigate() {
   return (
     <ul className={'Nav'}>
       <li>
-        <Button type="primary">Contact us </Button>
+        <Button type="default">Contact us </Button>
       </li>
       <li>
-        <Button type="primary">Donate </Button>
+        <Button type="default">Donate </Button>
       </li>
       <li>{!isAuth ? <SingIn /> : <UserSettings />}</li>
     </ul>

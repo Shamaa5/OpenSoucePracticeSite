@@ -2,18 +2,15 @@ import React from 'react';
 import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Sidebar(props) {
   const { SubMenu } = Menu;
-  const id = useParams().id;
-  console.log(id);
-  const handleLoadLanguage = () => {};
   return (
     <Sider className="site-layout-background" width={200}>
       <Menu mode="inline" defaultOpenKeys={['sub1']} style={{ height: '100%' }}>
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Choose language">
-          <Menu.Item key="1" onClick={() => handleLoadLanguage(id)}>
+          <Menu.Item key="1">
             <Link to="/language/JavaScript">JavaScript</Link>
           </Menu.Item>
 

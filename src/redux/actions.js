@@ -13,7 +13,21 @@ export const loadRepo = () => {
       });
   };
 };
-
+export const loadLanguages = (id) => {
+  return (dispatch) => {
+    dispatch({ type: 'Language/load/start' });
+    fetch(
+      `https://api.github.com/search/repositories?q=stars%3A%3E0&sort=language:${id}&order=desc&per_page=30`,
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'Language/load/success',
+          payload: json,
+        });
+      });
+  };
+};
 export const logOut = () => {
   return {
     type: 'logOut',

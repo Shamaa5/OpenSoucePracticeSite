@@ -1,22 +1,29 @@
 import React from 'react';
 import { Card } from 'antd';
-import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { StarOutlined } from '@ant-design/icons';
 
 function LanguageContainer(props) {
-  const params = useParams().id;
-  console.log(params);
   return (
-    <Card title="Card title" bordered={false} style={{ width: 300 }}>
-      <div> name </div>
-      <div> id </div>
-      <div> stars </div>
-      <div> Forks: {props?.repo.forks_count} </div>
+    <Card
+      title={props.repo.full_name}
+      bordered={true}
+      style={{ width: 280, margin: 10 }}
+    >
+      <div>
+        <StarOutlined /> : {props.repo.stargazers_count}
+      </div>
+      <div> {props.repo.description} </div>
+      <div> Forks: {props.repo.forks_count} </div>
     </Card>
   );
 }
 LanguageContainer.propTypes = {
   repo: PropTypes.object,
-  forks_counts: PropTypes.number,
+  full_name: PropTypes.string,
+  html_url: PropTypes.string,
+  stargazers_count: PropTypes.number,
+  description: PropTypes.string,
+  forks_count: PropTypes.number,
 };
 export default LanguageContainer;

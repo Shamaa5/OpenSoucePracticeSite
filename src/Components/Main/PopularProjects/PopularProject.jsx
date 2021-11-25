@@ -11,7 +11,7 @@ function PopularProject(props) {
       style={{ width: 280, margin: 10 }}
     >
       <div>
-        <StarOutlined /> : {props.repo.stargazers_count}{' '}
+        <StarOutlined /> : {props.repo.stargazers_count}
       </div>
       <div> {props.repo.description} </div>
       <div> Forks: {props.repo.forks_count} </div>

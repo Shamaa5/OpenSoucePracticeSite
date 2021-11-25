@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LanguageContainer from './LanguageContainer';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { loadLanguages } from '../../../redux/actions';
+import { Skeleton } from 'antd';
+import Title from 'antd/es/typography/Title';
 
 function LanguagesContainer(props) {
-  // const repositories = useSelector(state => state.repositories.languageRepositories);
-  // const params = useParams();
+  const repositories = useSelector(
+    (state) => state.repositories.languagesRepositories,
+  );
+  const loading = useSelector((state) => state.repositories.languagesLoading);
 
+  const dispatch = useDispatch();
+
+  const params = useParams();
+
+  useEffect(() => {
+    if (params.id) {
+      dispatch(loadLanguages(params.id));
+    }
+  }, [dispatch, params.id]);
+
+  if (loading) {
+    return <Skeleton active />;
+  }
   return (
-    <div className="site-card-border-less-wrapper">
-      {/*{repositories.map(repo => {*/}
-      return <LanguageContainer />
-      {/*})}*/}
+    <div className={'lightProjectsContainer'}>
+      <Title level={2} className={'ProjectTypeTitle'}>
+        Popular projects
+      </Title>
+      <div className="cards-container">
+        {repositories.map((repo) => {
+          return <LanguageContainer repo={repo} key={repo.id} />;
+        })}
+      </div>
     </div>
   );
 }
