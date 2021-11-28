@@ -6,8 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body, html {
-  height: 100% ;
+body,
+html {
+  height: 100%;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -108,7 +109,8 @@ ul {
   margin-block-end: 0;
 }
 
-.card-stars, .card-forks {
+.card-stars,
+.card-forks {
   margin-bottom: 5px;
 }
 .card-description {
@@ -123,4 +125,3 @@ ul {
   height: 300px;
   background-color: #656f7c;
 }
-
