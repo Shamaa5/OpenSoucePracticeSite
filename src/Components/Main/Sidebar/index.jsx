@@ -2,52 +2,56 @@ import React from 'react';
 import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar(props) {
   const { SubMenu } = Menu;
   return (
-    <Sider className="site-layout-background" width={200}>
-      <Menu mode="inline" defaultOpenKeys={['sub1']} style={{ height: '100%' }}>
+    <Sider
+      className="site-layout-background"
+      width={200}
+      style={{ height: 400 }}
+    >
+      <Menu mode="inline" defaultOpenKeys={['sub1']} style={{ height: 400 }}>
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Choose language">
           <Menu.Item key="1">
-            <Link to="/language/JavaScript">JavaScript</Link>
+            <NavLink to="/language/JavaScript">JavaScript</NavLink>
           </Menu.Item>
 
           <Menu.Item key="2">
-            <Link to="/language/Python">Python</Link>
+            <NavLink to="/language/Python">Python</NavLink>
           </Menu.Item>
 
           <Menu.Item key="3">
-            <Link to="/language/Java">Java</Link>
+            <NavLink to="/language/Java">Java</NavLink>
           </Menu.Item>
 
           <Menu.Item key="4">
-            <Link to="/language/C">C</Link>
+            <NavLink to="/language/C">C</NavLink>
           </Menu.Item>
 
           <Menu.Item key="5">
-            <Link to="/language/C++">C++</Link>
+            <NavLink to="/language/C++">C++</NavLink>
           </Menu.Item>
 
           <Menu.Item key="6">
-            <Link to="/language/C#">C#</Link>
+            <NavLink to="/language/C#">C#</NavLink>
           </Menu.Item>
 
           <Menu.Item key="7">
-            <Link to="/language/Go">Go</Link>
+            <NavLink to="/language/Go">Go</NavLink>
           </Menu.Item>
 
           <Menu.Item key="8">
-            <Link to="/language/Ruby">Ruby</Link>
+            <NavLink to="/language/Ruby">Ruby</NavLink>
           </Menu.Item>
 
           <Menu.Item key="9">
-            <Link to="/language/Rust">Rust</Link>
+            <NavLink to="/language/Rust">Rust</NavLink>
           </Menu.Item>
 
           <Menu.Item key="10">
-            <Link to="/language/PHP">PHP</Link>
+            <NavLink to="/language/PHP">PHP</NavLink>
           </Menu.Item>
         </SubMenu>
       </Menu>

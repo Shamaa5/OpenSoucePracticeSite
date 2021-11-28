@@ -8,16 +8,16 @@ import Title from 'antd/es/typography/Title';
 
 function LanguagesContainer(props) {
   const repositories = useSelector(
-    (state) => state.repositories.languagesRepositories,
+    (state) => state.repositories.allRepositories,
   );
-  const loading = useSelector((state) => state.repositories.languagesLoading);
+  const loading = useSelector((state) => state.repositories.loading);
 
   const dispatch = useDispatch();
 
   const params = useParams();
 
   useEffect(() => {
-    if (params.id) {
+    if (params.id !== undefined) {
       dispatch(loadLanguages(params.id));
     }
   }, [dispatch, params.id]);
@@ -28,7 +28,7 @@ function LanguagesContainer(props) {
   return (
     <div className={'lightProjectsContainer'}>
       <Title level={2} className={'ProjectTypeTitle'}>
-        Popular projects
+        Most popular {params.id} projects
       </Title>
       <div className="cards-container">
         {repositories.map((repo) => {

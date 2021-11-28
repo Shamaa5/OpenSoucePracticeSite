@@ -1,13 +1,13 @@
-export const loadRepo = () => {
+export const loadRepositories = () => {
   return (dispatch) => {
-    dispatch({ type: 'Repo/load/start' });
+    dispatch({ type: 'Repositories/load/start' });
     fetch(
-      'https://api.github.com/search/repositories?q=stars%3A%3E0&sort=language:go&order=desc&per_page=100',
+      'https://api.github.com/search/repositories?q=stars%3A>0&sort=stars&order=desc&per_page=100',
     )
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: 'Repo/load/success',
+          type: 'Repositories/load/success',
           payload: json,
         });
       });
@@ -17,7 +17,7 @@ export const loadLanguages = (id) => {
   return (dispatch) => {
     dispatch({ type: 'Language/load/start' });
     fetch(
-      `https://api.github.com/search/repositories?q=stars%3A%3E0&sort=language:${id}&order=desc&per_page=30`,
+      `https://api.github.com/search/repositories?q=language:${id.toLowerCase()}&order=desc`,
     )
       .then((response) => response.json())
       .then((json) => {
@@ -28,6 +28,20 @@ export const loadLanguages = (id) => {
       });
   };
 };
+export const loadRepository = (id) => {
+  return (dispatch) => {
+    dispatch({ type: 'Repository/load/start' });
+    fetch(`https://api.github.com/repositories/${id}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: 'Repository/load/success',
+          payload: json,
+        });
+      });
+  };
+};
+
 export const logOut = () => {
   return {
     type: 'logOut',

@@ -7,7 +7,7 @@ function Main() {
   const { Content } = Layout;
 
   return (
-    <Layout>
+    <Layout style={{ minHeight: '85vh' }}>
       <Content style={{ padding: '0 50px' }}>
         <Layout
           className="site-layout-background"

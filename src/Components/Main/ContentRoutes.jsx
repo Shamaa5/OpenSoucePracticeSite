@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import HomePageContainer from './HomePageContainer';
 import LanguagesContainer from './LanguagesContainer';
 import LanguageContainer from './LanguagesContainer/LanguageContainer';
-import RepoCard from './RepoCard';
 import NotFound404 from './NotFound404';
+import RepositoryCard from './RepositoryCard';
 
 function ContentRoutes() {
   return (
@@ -14,7 +14,7 @@ function ContentRoutes() {
         <Route path="/language" element={<LanguagesContainer />}>
           <Route path=":id" element={<LanguageContainer />} />
         </Route>
-        <Route path="/:id" element={<RepoCard />} />
+        <Route path="/:id" element={<RepositoryCard />} />
         <Route path="*" element={<NotFound404 />} />
       </Routes>
     </div>
