@@ -1,4 +1,5 @@
-import { initializeApp } from 'firebase/app';
+import firebase from 'firebase/app';
+import auth from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB4N2RFeerqT6ra65316XQI9Yf_08OKmrM',
@@ -9,4 +10,8 @@ const firebaseConfig = {
   appId: '1:260454999174:web:324ea411b39bff24b7dd07',
   measurementId: 'G-XMW9FXJDTC',
 };
-const firebaseApp = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+const githubProvider = new firebase.auth.GithubAuthProvider();
+
+export { auth, githubProvider };

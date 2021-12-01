@@ -11,7 +11,13 @@ function HomePageContainer(props) {
   const loading = useSelector((state) => state.repositories.loading);
 
   if (loading) {
-    return <Skeleton active />;
+    return (
+      <>
+        <Skeleton active />
+        <Skeleton active />
+        <Skeleton active />
+      </>
+    );
   }
   return (
     <div>

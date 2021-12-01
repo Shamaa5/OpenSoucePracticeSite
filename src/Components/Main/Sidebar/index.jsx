@@ -7,12 +7,8 @@ import { NavLink } from 'react-router-dom';
 function Sidebar(props) {
   const { SubMenu } = Menu;
   return (
-    <Sider
-      className="site-layout-background"
-      width={200}
-      style={{ height: 400 }}
-    >
-      <Menu mode="inline" defaultOpenKeys={['sub1']} style={{ height: 400 }}>
+    <Sider className="site-layout-background" width={200}>
+      <Menu mode="inline" defaultOpenKeys={['sub1']}>
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Choose language">
           <Menu.Item key="1">
             <NavLink to="/language/JavaScript">JavaScript</NavLink>

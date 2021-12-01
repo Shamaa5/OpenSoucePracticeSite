@@ -2,7 +2,7 @@ const initialState = {
   allRepositories: [],
   repository: [],
   loading: false,
-  loadingRerository: false,
+  loadingRepository: false,
 };
 
 const state = (state = initialState, action) => {
@@ -32,13 +32,13 @@ const state = (state = initialState, action) => {
     case 'Repository/load/start':
       return {
         ...state,
-        loadingRerository: true,
+        loadingRepository: true,
       };
     case 'Repository/load/success':
       return {
         ...state,
-        repository: action.payload,
-        loadingRerository: false,
+        repository: [action.payload],
+        loadingRepository: false,
       };
     default:
       return state;
