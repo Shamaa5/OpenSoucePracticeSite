@@ -47,10 +47,7 @@ export const loadRepository = (id) => {
         });
       })
       .catch((error) => {
-        dispatch({
-          type: 'Repository/load/failed',
-          payload: error,
-        });
+        console.error(error);
       });
   };
 };

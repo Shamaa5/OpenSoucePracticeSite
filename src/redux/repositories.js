@@ -1,6 +1,7 @@
 const initialState = {
   allRepositories: [],
   repository: [],
+  userRepositories: [],
   loading: false,
   loadingRepository: false,
 };

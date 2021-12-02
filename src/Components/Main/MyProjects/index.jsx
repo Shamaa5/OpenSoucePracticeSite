@@ -8,7 +8,6 @@ function MyProjects(props) {
     return <div>You need authorize to add projects</div>;
   }
 
-  return;
-  <div> Why are you gay?</div>;
+  return <div> Why are you gay?</div>;
 }
 export default MyProjects;
