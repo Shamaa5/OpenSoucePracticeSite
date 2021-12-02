@@ -1,13 +1,18 @@
 import Navigate from './Navigate/Navigate';
 import React from 'react';
 import Logo from './Logo/index';
+import { Col, Row } from 'antd';
 
 function HeaderContainer() {
   return (
-    <header>
-      <Logo />
-      <Navigate />
-    </header>
+    <Row>
+      <Col span={24}>
+        <header>
+          <Logo />
+          <Navigate />
+        </header>
+      </Col>
+    </Row>
   );
 }
 

@@ -6,19 +6,21 @@ import { loadRepository } from '../../../redux/actions';
 import Repository from './Repository';
 
 function RepositoryCard() {
-  const repository = useSelector((state) => state.repositories.repository);
   const params = useParams();
   const loading = useSelector((state) => state.repositories.loadingRepository);
+  const repository = useSelector((state) => state.repositories.repository);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (params.id) {
       dispatch(loadRepository(params.id));
     }
   }, [dispatch, params.id]);
 
-  if (loading || !repository) {
+  if (loading) {
     return <Skeleton active />;
   }
+
   return (
     <div>
       {repository.map((repo) => {

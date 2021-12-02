@@ -10,9 +10,7 @@ body,
 html {
   height: 100%;
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
 .MainContainer {
   font-family: 'Montagu Slab', serif;
 }
@@ -37,11 +35,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 25px;
 }
 .logo {
   display: flex;
-  width: 150px;
+  width: 100%;
   color: #ffffff;
   height: 50px;
 }
@@ -56,10 +54,10 @@ ul {
   text-align: center;
 }
 .Nav {
+  min-width: 20%;
   align-self: center;
   display: flex;
-  min-width: 300px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 0;
 }

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function OtherProject(props) {
   return (
-    <Link to={`/${props.repo.id}`}>
+    <Link to={`/repository/${props.repo.id}`}>
       <Card
         hoverable
         title={props.repo.name}

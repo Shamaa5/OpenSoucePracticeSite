@@ -12,7 +12,7 @@ function Navigate() {
         <Button type="default">Contact us </Button>
       </li>
       <li>
-        <Button type="default">Donate </Button>
+        <Button type="default"> Upgrade </Button>
       </li>
       <li>{!isAuth ? <SingIn /> : <UserSettings />}</li>
     </ul>

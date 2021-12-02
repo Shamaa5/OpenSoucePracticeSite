@@ -10,6 +10,9 @@ export const loadRepositories = () => {
           type: 'Repositories/load/success',
           payload: json,
         });
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 };
@@ -25,9 +28,13 @@ export const loadLanguages = (id) => {
           type: 'Language/load/success',
           payload: json,
         });
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 };
+
 export const loadRepository = (id) => {
   return (dispatch) => {
     dispatch({ type: 'Repository/load/start' });
@@ -37,6 +44,12 @@ export const loadRepository = (id) => {
         dispatch({
           type: 'Repository/load/success',
           payload: json,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: 'Repository/load/failed',
+          payload: error,
         });
       });
   };
