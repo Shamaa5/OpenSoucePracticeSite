@@ -1,17 +1,18 @@
-import firebase from 'firebase/app';
-import auth from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB4N2RFeerqT6ra65316XQI9Yf_08OKmrM',
-  authDomain: 'opensourcepracticesite.firebaseapp.com',
-  projectId: 'opensourcepracticesite',
-  storageBucket: 'opensourcepracticesite.appspot.com',
-  messagingSenderId: '260454999174',
-  appId: '1:260454999174:web:324ea411b39bff24b7dd07',
-  measurementId: 'G-XMW9FXJDTC',
+  apiKey: 'AIzaSyCQ-yOHfX1GdOM_LycfYnqgxko-gqg-rbU',
+  authDomain: 'practice-ec78a.firebaseapp.com',
+  projectId: 'practice-ec78a',
+  storageBucket: 'practice-ec78a.appspot.com',
+  messagingSenderId: '388206497516',
+  appId: '1:388206497516:web:be29823be222eb6d43dfc9',
+  measurementId: 'G-BK7TEKQ3ST',
 };
-firebase.initializeApp(firebaseConfig);
 
-const githubProvider = new firebase.auth.GithubAuthProvider();
+const app = initializeApp(firebaseConfig);
 
-export { auth, githubProvider };
+const authentication = getAuth(app);
+
+export { authentication, signInWithPopup, GithubAuthProvider };

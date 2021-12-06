@@ -1,5 +1,5 @@
 const initialState = {
-  user: [],
+  user: null,
   token: '',
   isAuth: false,
   loading: false,
@@ -10,13 +10,13 @@ const state = (state = initialState, action) => {
     case 'userLoggedIn':
       return {
         ...state,
-        token: action.payload,
         isAuth: true,
+        user: action.payload.user,
       };
     case 'logOut':
       return {
         ...state,
-        user: [],
+        user: null,
         token: '',
         isAuth: false,
       };

@@ -4,9 +4,10 @@ import { UserOutlined } from '@ant-design/icons';
 import Avatar from 'antd/es/avatar/avatar';
 import LogOut from './LogOut';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function UserSettings() {
-  const userName = null;
+  const userName = useSelector((state) => state.auth.user.displayName);
   const menu = (
     <Menu>
       <Menu.Item key={1}>{`Singed as ${userName}`}</Menu.Item>

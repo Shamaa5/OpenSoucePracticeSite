@@ -2,11 +2,19 @@ import React from 'react';
 import { Menu } from 'antd';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../../redux/actions';
+import { getAuth, signOut } from 'firebase/auth';
 
-function LogOut(props) {
+function LogOut() {
   const dispatch = useDispatch();
   const handleLogOut = () => {
-    dispatch(logOut());
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        dispatch(logOut());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <Menu.Item danger onClick={handleLogOut}>
