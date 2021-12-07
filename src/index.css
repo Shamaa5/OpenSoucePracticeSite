@@ -123,6 +123,12 @@ ul {
 .RepoCardWrapper {
   width: 100%;
 }
+.cardItems li {
+  margin-bottom: 10px;
+}
+.card-description-title {
+  font-weight: 600;
+}
 .RepoTitle {
   margin-bottom: 10px;
   font-size: 2rem;
@@ -130,6 +136,7 @@ ul {
 .RepoDescription {
   font-size: 17px;
   margin-bottom: 10px;
+  width: 70%;
 }
 .card-description {
   font-style: italic;

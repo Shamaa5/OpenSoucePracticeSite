@@ -20,7 +20,8 @@ export const loadLanguages = (id) => {
   return (dispatch) => {
     dispatch({ type: 'Language/load/start' });
     fetch(
-      `https://api.github.com/search/repositories?q=language:${id.toLowerCase()}&order=desc`,
+      `https://api.github.com/search/repositories?q=language:` +
+        `${id.toLowerCase()}&order=desc`,
     )
       .then((response) => response.json())
       .then((json) => {

@@ -20,7 +20,11 @@ function SingIn() {
       })
       .catch((err) => console.log(err));
   };
-  return <Button icon={<GithubOutlined />} onClick={handleAuth} />;
+  return (
+    <Button onClick={handleAuth}>
+      Sing in with <GithubOutlined />
+    </Button>
+  );
 }
 
 export default SingIn;
