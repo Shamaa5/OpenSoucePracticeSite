@@ -1,17 +1,22 @@
 const initialState = {
   user: null,
   isAuth: false,
-  loading: true,
+  loading: false,
+  token: null,
 };
 
 const state = (state = initialState, action) => {
   switch (action.type) {
-    case 'userLoggedIn':
+    case 'Auth/start':
       return {
         ...state,
-        user: action.payload.user,
+        loading: true,
+      };
+    case 'Auth/success':
+      return {
+        ...state,
         loading: false,
-        isAuth: true,
+        user: action.payload,
       };
     case 'logOut':
       return {
@@ -19,9 +24,8 @@ const state = (state = initialState, action) => {
         user: null,
         token: '',
         isAuth: false,
+        code: null,
       };
-    case 'test':
-      return {};
 
     default:
       return state;

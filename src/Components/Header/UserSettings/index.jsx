@@ -6,10 +6,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function UserSettings() {
-  const userName = useSelector(
-    (state) => state.auth.user.reloadUserInfo.screenName,
-  );
-  const avatarUrl = useSelector((state) => state.auth.user.photoURL);
+  const userName = null;
+  const avatarUrl = null;
   console.log(avatarUrl);
 
   const loading = useSelector((state) => state.auth.loading);

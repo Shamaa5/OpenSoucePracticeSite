@@ -1,29 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import LoginGithub from 'react-login-github';
+import { userLogIn, test } from '../../../redux/actions';
 import { GithubOutlined } from '@ant-design/icons';
-import {
-  authentication,
-  signInWithPopup,
-  GithubAuthProvider,
-} from '../../../firebase config/firebase-config';
-import { Button } from 'antd';
-import { userLogIn } from '../../../redux/actions';
 
 function SingIn() {
   const dispatch = useDispatch();
-
-  const handleAuth = () => {
-    const provider = new GithubAuthProvider();
-    signInWithPopup(authentication, provider)
-      .then((res) => {
-        dispatch(userLogIn(res));
-      })
-      .catch((err) => console.log(err));
-  };
+  const onSuccess = (response) => dispatch(test(response.code));
+  const onFailure = (response) => console.error(response);
   return (
-    <Button onClick={handleAuth}>
-      Sing in with <GithubOutlined />
-    </Button>
+    <LoginGithub
+      clientId="94e7ef77a0fdf11674ae"
+      onSuccess={onSuccess}
+      onFailure={onFailure}
+      buttonText={null}
+      className="LoginButton"
+    >
+      Login with <GithubOutlined />
+    </LoginGithub>
   );
 }
 

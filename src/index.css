@@ -54,7 +54,7 @@ ul {
   text-align: center;
 }
 .Nav {
-  min-width: 20%;
+  min-width: 350px;
   align-self: center;
   display: flex;
   justify-content: space-around;
@@ -148,7 +148,6 @@ ul {
 .RepoCardOwnerAvatar {
   width: 300px;
   height: 300px;
-  background-color: #656f7c;
 }
 .UserActionsButtons {
   margin: 10px 0 20px;
@@ -166,11 +165,12 @@ ul {
   position: absolute;
   top: 50px;
   left: -3px;
-  padding: 7px 5px;
+  padding: 7px 7px;
   width: auto;
   word-break: break-all;
   display: block;
   background-color: #8f8e8e;
+  border-radius: 5px;
   font-size: 13px;
   color: white;
   line-height: 13px;

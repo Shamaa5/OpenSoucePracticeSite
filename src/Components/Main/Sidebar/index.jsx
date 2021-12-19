@@ -31,22 +31,18 @@ function Sidebar() {
           </Menu.Item>
 
           <Menu.Item key="6">
-            <NavLink to="/language/C#">C#</NavLink>
-          </Menu.Item>
-
-          <Menu.Item key="7">
             <NavLink to="/language/Go">Go</NavLink>
           </Menu.Item>
 
-          <Menu.Item key="8">
+          <Menu.Item key="7">
             <NavLink to="/language/Ruby">Ruby</NavLink>
           </Menu.Item>
 
-          <Menu.Item key="9">
+          <Menu.Item key="8">
             <NavLink to="/language/Rust">Rust</NavLink>
           </Menu.Item>
 
-          <Menu.Item key="10">
+          <Menu.Item key="9">
             <NavLink to="/language/PHP">PHP</NavLink>
           </Menu.Item>
         </SubMenu>
