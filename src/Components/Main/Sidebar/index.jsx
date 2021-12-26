@@ -8,7 +8,7 @@ function Sidebar() {
   const { SubMenu } = Menu;
   return (
     <Sider className="site-layout-background" width={200}>
-      <Menu mode="inline" defaultOpenKeys={['sub1']}>
+      <Menu mode="inline" defaultOpenKeys={['none']}>
         <SubMenu key="sub1" icon={<SettingOutlined />} title="Choose language">
           <Menu.Item key="1">
             <NavLink to="/language/JavaScript">JavaScript</NavLink>

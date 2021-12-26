@@ -8,9 +8,7 @@ function AddNewProject(props) {
     return (
       <div>
         <h1>new project</h1>
-        <label htmlFor="">
-          <input type="search" />
-        </label>
+        <input type="search" />
       </div>
     );
   }

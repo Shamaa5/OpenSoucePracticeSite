@@ -56,14 +56,20 @@ export const logOut = () => {
     type: 'logOut',
   };
 };
-export const test = (code) => {
+export const getToken = (res) => {
   return (dispatch) => {
-    dispatch({ type: 'Auth/start', code });
-    fetch(`https://api.github.com/user?access_token=${code}`, {
+    dispatch({ type: 'Auth/start' });
+    fetch(`https://github.com/login/oauth/access_token`, {
       method: 'POST',
+      body: {
+        code: res.code,
+        client_secret: 'b1e13e991390ec3130bba2679144882a05122ff9',
+      },
       headers: {
         'Content-type': 'application/json',
-        Authorization: `${code}`,
+        'Access-Control-Allow-Origin':
+          'https://github.com/login/oauth/access_token',
+        Vary: 'Origin',
       },
     })
       .then((response) => response.json())
