@@ -1,8 +1,5 @@
 const initialState = {
-  contacts: [],
-  token: '',
-  isAuth: false,
-  loading: false,
+  Repositories: [],
 };
 
 const state = (state = initialState, action) => {

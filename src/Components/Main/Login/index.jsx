@@ -1,15 +1,12 @@
 import React from 'react';
-import { Button } from 'antd';
-import {
-  ArrowLeftOutlined,
-  GithubOutlined,
-  GoogleOutlined,
-} from '@ant-design/icons';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import GithubLogin from './GithubLogin';
+import GoogleLogin from './GoogleLogin';
 
-function Login(props) {
+function Login() {
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.isAuth);
   if (isAuth) {
@@ -24,18 +21,8 @@ function Login(props) {
         <div>
           <h2>Choose authentication</h2>
         </div>
-        <div>
-          <Button icon={<GithubOutlined />} className="authBtn">
-            {' '}
-            Sing in with Github{' '}
-          </Button>
-        </div>
-        <div>
-          <Button icon={<GoogleOutlined />} className="authBtn">
-            {' '}
-            Sing in with Google{' '}
-          </Button>
-        </div>
+        <GithubLogin />
+        <GoogleLogin />
       </div>
     </div>
   );

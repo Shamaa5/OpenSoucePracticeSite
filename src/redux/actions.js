@@ -56,40 +56,32 @@ export const logOut = () => {
     type: 'logOut',
   };
 };
-export const getToken = (res) => {
+
+export const githubAuth = () => {
   return (dispatch) => {
     dispatch({ type: 'Auth/start' });
-    fetch(`https://github.com/login/oauth/access_token`, {
-      method: 'POST',
-      body: {
-        code: res.code,
-        client_secret: 'b1e13e991390ec3130bba2679144882a05122ff9',
-      },
+    fetch(`http://localhost:5000/auth/login/success`, {
+      method: 'GET',
       headers: {
+        Accept: 'application/json',
         'Content-type': 'application/json',
-        'Access-Control-Allow-Origin':
-          'https://github.com/login/oauth/access_token',
-        Vary: 'Origin',
+        'Access-Control-Allow-Credentials': true,
       },
     })
-      .then((response) => response.json())
-      .then((json) => {
+      .then((response) => {
+        if (response.status === 200) return response.json();
+        throw new Error('authentication has been failed!');
+      })
+      .then((data) => {
         dispatch({
           type: 'Auth/success',
-          payload: json,
+          payload: data.user,
         });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.log(err);
       });
   };
 };
 
-export const userLogIn = (res) => {
-  return {
-    type: 'userLogIn',
-    payload: res,
-  };
-};
-
-export const loadUserProjects = () => {};
+// export const loadUserProjects = () => {};

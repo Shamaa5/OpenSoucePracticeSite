@@ -1,8 +1,7 @@
 const initialState = {
-  user: null,
+  user: {},
   isAuth: false,
   loading: false,
-  token: null,
 };
 
 const state = (state = initialState, action) => {
@@ -15,6 +14,7 @@ const state = (state = initialState, action) => {
     case 'Auth/success':
       return {
         ...state,
+        isAuth: true,
         loading: false,
         user: action.payload,
       };
