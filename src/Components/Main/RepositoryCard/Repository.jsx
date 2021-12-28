@@ -35,7 +35,10 @@ function Repository(props) {
 
           <li>
             <div>
-              <span className="card-description-title">Difficulty </span>:
+              <span className="card-description-title">Difficulty </span>
+              {props.repo.difficulty
+                ? props.repo.difficulty
+                : 'difficulty not specified'}
             </div>
           </li>
 

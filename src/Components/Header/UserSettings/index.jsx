@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 function UserSettings() {
   const userName = useSelector((state) => state.auth.user.username);
   const avatarUrl = useSelector((state) => state.auth.user.photos[0].value);
-  console.log(avatarUrl);
 
   const loading = useSelector((state) => state.auth.loading);
 
