@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function UserSettings() {
-  const userName = null;
-  const avatarUrl = null;
+  const userName = useSelector((state) => state.auth.user.username);
+  const avatarUrl = useSelector((state) => state.auth.user.photos[0].value);
   console.log(avatarUrl);
 
   const loading = useSelector((state) => state.auth.loading);
 
   const menu = (
     <Menu>
-      <Menu.Item key={1}>{`${userName}`}</Menu.Item>
+      <Menu.Item key={1} style={{ cursor: 'default' }}>
+        Signed as <b>{`${userName}`}</b>
+      </Menu.Item>
       <Menu.Item key={2}>
         <Link to="/my-projects">Your projects</Link>
       </Menu.Item>

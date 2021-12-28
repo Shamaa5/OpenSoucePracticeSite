@@ -8,6 +8,7 @@ router.get('/login/success', (req, res) => {
       success: true,
       message: 'successfully',
       user: req.user,
+      //   cookies: req.cookies
     });
   }
 });

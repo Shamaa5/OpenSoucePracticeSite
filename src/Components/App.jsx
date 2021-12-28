@@ -8,10 +8,12 @@ import { githubAuth, loadRepositories } from '../redux/actions';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(githubAuth());
     dispatch(loadRepositories());
   }, [dispatch]);
+
   return (
     <Layout className="containerSection">
       <HeaderContainer />

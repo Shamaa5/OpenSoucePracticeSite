@@ -60,11 +60,12 @@ export const logOut = () => {
 export const githubAuth = () => {
   return (dispatch) => {
     dispatch({ type: 'Auth/start' });
-    fetch(`http://localhost:5000/auth/login/success`, {
+    fetch('http://localhost:5000/auth/login/success', {
       method: 'GET',
+      credentials: 'include',
       headers: {
         Accept: 'application/json',
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': true,
       },
     })
@@ -72,16 +73,12 @@ export const githubAuth = () => {
         if (response.status === 200) return response.json();
         throw new Error('authentication has been failed!');
       })
-      .then((data) => {
-        dispatch({
-          type: 'Auth/success',
-          payload: data.user,
-        });
+      .then((resObject) => {
+        dispatch({ type: 'Auth/success', payload: resObject.user });
       })
       .catch((err) => {
         console.log(err);
       });
   };
 };
-
 // export const loadUserProjects = () => {};
