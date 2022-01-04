@@ -1,22 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { Button, Skeleton } from 'antd';
 import Title from 'antd/es/typography/Title';
+import { loadUserProjects } from '../../../redux/actions';
 
 function UserProjects() {
-  const repository = useSelector((state) => state.repositories.userRepository);
+  const repository = useSelector((state) => state.userReducer.Repositories);
   const isAuth = useSelector((state) => state.auth.isAuth);
   const loading = useSelector(
     (state) => state.repositories.loadingUserRepository,
   );
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     dispatch(loadUserProjects());
-  //   }
-  // }, [isAuth, dispatch]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isAuth) {
+      dispatch(loadUserProjects());
+    }
+  }, [isAuth, dispatch]);
 
   if (!isAuth) {
     return <div>You need authorize to add projects</div>;
