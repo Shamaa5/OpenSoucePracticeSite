@@ -19,7 +19,7 @@ function Login() {
           <ArrowLeftOutlined />
         </div>
         <div>
-          <h2>Choose authentication</h2>
+          <h2>Choose login method</h2>
         </div>
         <GithubLogin />
         <GoogleLogin />

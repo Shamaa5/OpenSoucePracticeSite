@@ -22,9 +22,7 @@ const state = (state = initialState, action) => {
       return {
         ...state,
         user: null,
-        token: '',
         isAuth: false,
-        code: null,
       };
 
     default:

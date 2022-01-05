@@ -28,6 +28,9 @@ img {
   margin-block-start: 0;
   margin-block-end: 0;
 }
+Link {
+  text-decoration: none;
+}
 header {
   width: 100%;
   height: 70px;
@@ -157,6 +160,7 @@ ul {
 .AddNewProjectWrapper {
   width: 50px;
   position: relative;
+  margin-bottom: 20px;
 }
 .description {
   display: none;
@@ -209,4 +213,11 @@ ul {
 }
 h1 {
   font-size: 36px;
+}
+.Error {
+  text-align: center;
+  width: 30%;
+  margin: 10px 0;
+  padding: 10px 10px;
+  color: red;
 }

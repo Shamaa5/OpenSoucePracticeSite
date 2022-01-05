@@ -1,13 +1,13 @@
-export const loadRepositories = () => {
+export const loadAllRepositories = () => {
   return (dispatch) => {
-    dispatch({ type: 'Repositories/load/start' });
+    dispatch({ type: 'allRepositories/load/start' });
     fetch(
       'https://api.github.com/search/repositories?q=stars%3A%3E0&sort=stars&order=desc&per_page=100',
     )
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: 'Repositories/load/success',
+          type: 'allRepositories/load/success',
           payload: json,
         });
       })
@@ -84,12 +84,9 @@ export const githubAuth = () => {
 export const loadUserProjects = () => {
   return (dispatch) => {
     dispatch({ type: 'userRepos/loadFromServer/start' });
-    fetch('https://61d34ae7b4c10c001712b8d4.mockapi.io/projects', {
-      method: 'GET',
+    fetch('https://61d5c3b82b4f730017a82a41.mockapi.io//Projects', {
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.json())
@@ -98,9 +95,6 @@ export const loadUserProjects = () => {
           type: 'userRepos/loadFromServer/success',
           payload: json,
         });
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
 };
@@ -112,22 +106,22 @@ export const postUserProject = (link, userId) => {
     fetch(`https://api.github.com/repos/${str}`)
       .then((response) => {
         if (response.status === 200) return response.json();
-        throw new Error('something went wrong');
+        dispatch({ type: 'Error', payload: new Error('something went wrong') });
       })
       .then((repoInfo) => {
         dispatch({
           type: 'userRepo/fetchFromGithub/success',
           payload: repoInfo,
         });
-        console.log(repoInfo);
         dispatch({ type: 'userRepo/postToServer/start' });
 
-        fetch(`https://61d34ae7b4c10c001712b8d4.mockapi.io/Projects`, {
+        fetch(`https://61d5c3b82b4f730017a82a41.mockapi.io//Projects`, {
           method: 'POST',
-          body: {
-            $full_name: repoInfo.full_name,
-            $id: repoInfo.id,
-            $description: repoInfo.description,
+          body: JSON.stringify({
+            name: repoInfo.name,
+            full_name: repoInfo.full_name,
+            id: repoInfo.id,
+            description: repoInfo.description,
             forks_count: repoInfo.forks_count,
             open_issues: repoInfo.open_issues,
             html_url: repoInfo.html_url,
@@ -135,8 +129,11 @@ export const postUserProject = (link, userId) => {
             pushed_at: repoInfo.pushed_at,
             watchers: repoInfo.watchers,
             Added_user_id: userId,
-            avatar_url: repoInfo.avatar_url,
+            avatar_url: repoInfo.owner.avatar_url,
             homepage: repoInfo.homepage,
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
           },
         })
           .then((response) => response.json())

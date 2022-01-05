@@ -19,9 +19,7 @@ function UserSettings() {
       <Menu.Item key={2}>
         <Link to="/my-projects">Your projects</Link>
       </Menu.Item>
-      <Menu.Item key={3}>
-        <Link to="/new-project">Add new project</Link>
-      </Menu.Item>
+      <Menu.Item key={3}>Delete account</Menu.Item>
       <LogOut />
     </Menu>
   );

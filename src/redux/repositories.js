@@ -9,12 +9,12 @@ const initialState = {
 
 const state = (state = initialState, action) => {
   switch (action.type) {
-    case 'Repositories/load/start':
+    case 'allRepositories/load/start':
       return {
         ...state,
         loading: true,
       };
-    case 'Repositories/load/success':
+    case 'allRepositories/load/success':
       return {
         ...state,
         allRepositories: action.payload.items,

@@ -1,17 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import { Button, Skeleton } from 'antd';
 import Title from 'antd/es/typography/Title';
 import { loadUserProjects } from '../../../redux/actions';
+import UserProject from './UserProject';
+import AddNewProject from './AddNewProject';
 
 function UserProjects() {
-  const repository = useSelector((state) => state.userReducer.Repositories);
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const loading = useSelector(
-    (state) => state.repositories.loadingUserRepository,
+  const userId = useSelector((state) => state.auth.user.id);
+
+  const repository = useSelector((state) =>
+    state.userReducer.Repositories.filter(
+      (value) => value.Added_user_id === userId,
+    ),
   );
+
+  const isAuth = useSelector((state) => state.auth.isAuth);
+
+  const loading = useSelector((state) => state.userReducer.loading);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,15 +38,13 @@ function UserProjects() {
     <div>
       <div className="UserActionsButtons">
         <div className="AddNewProjectWrapper">
-          <Link to="/new-project">
-            <Button icon={<PlusOutlined className={'AddNewProjectBtn'} />}>
-              <div className="description">
-                {' '}
-                <i>Add new project</i>
-              </div>
-            </Button>
-          </Link>
+          <Button icon={<PlusOutlined className={'AddNewProjectBtn'} />}>
+            <div className="description">
+              <i>Add new project</i>
+            </div>
+          </Button>
         </div>
+        <AddNewProject />
       </div>
       <div className="lightProjectsContainer">
         <Title level={2} className={'ProjectTypeTitle'}>
@@ -46,12 +52,11 @@ function UserProjects() {
         </Title>
         {repository.length < 1 ? (
           <div style={{ fontSize: 17, fontWeight: 500 }}>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            it's quiet here for now
+            You have no added projects yet
           </div>
         ) : (
           repository.map((repo) => {
-            return <UserProjects repo={repo} key={repo.id} />;
+            return <UserProject repo={repo} key={repo.id} />;
           })
         )}
       </div>

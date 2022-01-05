@@ -5,7 +5,6 @@ import LanguagesContainer from './LanguagesContainer';
 import NotFound404 from './NotFound404';
 import RepositoryCard from './RepositoryCard';
 import UserProjects from './UserProjects';
-import AddNewProject from './AddNewProject';
 import Login from './Login';
 
 function ContentRoutes() {
@@ -16,7 +15,6 @@ function ContentRoutes() {
         <Route path="/language/:id" element={<LanguagesContainer />} />
         <Route path="/repository/:id" element={<RepositoryCard />} />
         <Route path="/my-projects" element={<UserProjects />} />
-        <Route path="/new-project" element={<AddNewProject />} />
         <Route path="/Login" element={<Login />} />
         <Route path="*" element={<NotFound404 />} />
       </Routes>
