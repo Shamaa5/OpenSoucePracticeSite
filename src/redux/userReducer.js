@@ -17,7 +17,7 @@ const state = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        Repositories: action.payload,
+        Repositories: [...state.Repositories, action.payload],
         Error: false,
       };
     case 'userRepos/loadFromServer/start':

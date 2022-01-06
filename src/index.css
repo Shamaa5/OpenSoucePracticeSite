@@ -229,20 +229,18 @@ h1 {
 .rotate {
   transform: rotate(135deg);
 }
-.alert {
-  transform: translateY(-150%);
-  animation: in 0.3s forwards;
+.my-node-enter {
+  opacity: 0;
 }
-
-@keyframes in {
-  0% {
-    transform: translateY(-25%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
 }
-.none {
-  display: none;
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }
 

@@ -10,7 +10,7 @@ function UserProjects() {
   const userId = useSelector((state) => state.auth.user.id);
 
   const repository = useSelector((state) =>
-    state.userReducer.Repositories.filter(
+    state.userReducer.Repositories?.filter(
       (value) => value.Added_user_id === userId,
     ),
   );
@@ -20,11 +20,13 @@ function UserProjects() {
   const loading = useSelector((state) => state.userReducer.loading);
 
   const [visible, setVisible] = useState(false);
-  console.log(visible);
+
   if (!isAuth) {
     return <div>You need authorize to add projects</div>;
   }
-
+  if (loading) {
+    return <Skeleton active />;
+  }
   return (
     <div>
       <div className="UserActionsButtons">
@@ -47,9 +49,7 @@ function UserProjects() {
           Your projects
         </Title>
         <div className="cards-container">
-          {loading ? (
-            <Skeleton active />
-          ) : repository.length < 1 ? (
+          {repository.length < 1 ? (
             <div style={{ fontSize: 17, fontWeight: 500 }}>
               You have no added projects yet :(
             </div>

@@ -11,36 +11,47 @@ function AddNewProject(props) {
   const Error = useSelector((state) => state.userReducer.Error);
   const ErrorMessage = useSelector((state) => state.userReducer.ErrorMessage);
   const dispatch = useDispatch();
-
   const [link, setLink] = useState('');
+  const [difficulty, setDifficulty] = useState('');
 
-  const onSearch = () => {
-    dispatch(postUserProject(link, userId));
+  const addRepo = () => {
+    dispatch(postUserProject(link, userId, difficulty));
     setLink('');
   };
 
   return (
-    <div className={props.visible ? 'alert in' : 'none'}>
-      <h2>Add github repository owner name/project name</h2>
-      <Input
-        placeholder="intocode/pre-bootcamp"
-        allowClear
-        size="large"
-        style={{ width: '30%', marginBottom: 20 }}
-        onChange={(e) => setLink(e.target.value)}
-        disabled={loading}
-      />
-      {Error && <div className="Error">{ErrorMessage}</div>}
-      <div style={{ marginBottom: 30 }}>
-        <h4>Please, choose difficulty of project</h4>
-        <Radio.Group>
-          <Radio value={1}>Easy</Radio>
-          <Radio value={2}>Medium</Radio>
-          <Radio value={3}>Hard</Radio>
-        </Radio.Group>
+    <CSSTransition
+      timeout={150}
+      in={props.visible}
+      classNames="my-node"
+      unmountOnExit
+      mountOnEnter
+    >
+      <div>
+        <h2>Add github repository owner name/project name</h2>
+        <Input
+          placeholder="intocode/pre-bootcamp"
+          allowClear
+          onPressEnter={addRepo}
+          size="large"
+          style={{ width: '30%', marginBottom: 20 }}
+          onChange={(e) => setLink(e.target.value)}
+          value={link}
+        />
+        {Error && <div className="Error">{ErrorMessage}</div>}
+        <div style={{ marginBottom: 30 }}>
+          <h4>Please, choose difficulty of project</h4>
+          <Radio.Group onChange={(e) => setDifficulty(e.target.value)}>
+            <Radio value={'Easy'}>Easy</Radio>
+            <Radio value={'Medium'}>Medium</Radio>
+            <Radio value={'Hard'}>Hard</Radio>
+          </Radio.Group>
+        </div>
+        <Button type="primary" disabled={loading} onClick={addRepo}>
+          Submit
+        </Button>
       </div>
-      <Button type="primary">Submit</Button>
-    </div>
+    </CSSTransition>
   );
 }
 AddNewProject.propTypes = {
