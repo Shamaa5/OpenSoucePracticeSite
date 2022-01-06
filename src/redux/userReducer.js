@@ -2,6 +2,7 @@ const initialState = {
   Repositories: [],
   loading: false,
   Error: false,
+  ErrorMessage: '',
 };
 
 const state = (state = initialState, action) => {
@@ -36,6 +37,7 @@ const state = (state = initialState, action) => {
       return {
         ...state,
         Error: true,
+        ErrorMessage: action.payload,
       };
     default:
       return state;

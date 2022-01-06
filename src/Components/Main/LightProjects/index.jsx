@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 function LightProjectsContainer() {
   const repositories = useSelector((state) =>
-    state.repositories.allRepositories.sort(
-      (a, b) => b.forks_count - a.forks_count,
-    ),
+    state.userReducer.Repositories.sort((a, b) => b.difficulty - a.difficulty),
   );
 
   return (
@@ -16,10 +14,7 @@ function LightProjectsContainer() {
         Light projects
       </Title>
       <div className="cards-container">
-        {repositories.map((repo, index) => {
-          if (index > 9) {
-            return false;
-          }
+        {repositories.map((repo) => {
           return <LightProject key={repo.id + 'light'} repo={repo} />;
         })}
       </div>

@@ -14,7 +14,7 @@ function OtherProjectsContainer(props) {
       </Title>
       <div className="cards-container">
         {repositories.map((repo, index) => {
-          if (index < 19 || index > 78) {
+          if (index < 29) {
             return false;
           }
           return <OtherProject repo={repo} key={repo.id} />;

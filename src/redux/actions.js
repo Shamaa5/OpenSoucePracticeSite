@@ -99,14 +99,18 @@ export const loadUserProjects = () => {
   };
 };
 
-export const postUserProject = (link, userId) => {
+export const postUserProject = (link, userId, difficulty) => {
   let str = link.replace(/\s+/g, '');
   return (dispatch) => {
     dispatch({ type: 'userRepo/fetchFromGithub/start' });
     fetch(`https://api.github.com/repos/${str}`)
       .then((response) => {
         if (response.status === 200) return response.json();
-        dispatch({ type: 'Error', payload: new Error('something went wrong') });
+        else
+          dispatch({
+            type: 'Error',
+            payload: 'could not find repository',
+          });
       })
       .then((repoInfo) => {
         dispatch({
@@ -131,6 +135,7 @@ export const postUserProject = (link, userId) => {
             Added_user_id: userId,
             avatar_url: repoInfo.owner.avatar_url,
             homepage: repoInfo.homepage,
+            difficulty: difficulty,
           }),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -145,7 +150,7 @@ export const postUserProject = (link, userId) => {
           });
       })
       .catch((error) => {
-        console.error(error);
+        dispatch({ type: 'Error', payload: error });
       });
   };
 };

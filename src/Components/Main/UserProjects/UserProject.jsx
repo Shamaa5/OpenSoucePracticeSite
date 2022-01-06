@@ -27,6 +27,7 @@ function UserProject(props) {
           <ForkOutlined />: {props.repo.forks_count}
         </div>
         <div className="card-description"> {props.repo.description} </div>
+        <div>difficulty: {props.repo.difficulty} </div>
       </Card>
     </NavLink>
   );

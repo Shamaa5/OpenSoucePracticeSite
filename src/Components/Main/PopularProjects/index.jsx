@@ -19,7 +19,7 @@ function PopularProjects(props) {
       </Title>
       <div className="cards-container">
         {repositories.map((repo, index) => {
-          if (index > 19) {
+          if (index > 29) {
             return false;
           }
           return <PopularProject repo={repo} key={repo.id} />;

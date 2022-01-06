@@ -4,7 +4,11 @@ import Main from './Main';
 import FooterContainer from './FooterContainer';
 import Layout from 'antd/es/layout/layout';
 import { useDispatch } from 'react-redux';
-import { githubAuth, loadAllRepositories } from '../redux/actions';
+import {
+  githubAuth,
+  loadAllRepositories,
+  loadUserProjects,
+} from '../redux/actions';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,6 +16,7 @@ function App() {
   useEffect(() => {
     dispatch(githubAuth());
     dispatch(loadAllRepositories());
+    dispatch(loadUserProjects());
   }, [dispatch]);
 
   return (
