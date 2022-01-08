@@ -103,7 +103,9 @@ export const postUserProject = (link, userId, difficulty) => {
   let str = link.replace(/\s+/g, '');
   return (dispatch) => {
     dispatch({ type: 'userRepo/fetchFromGithub/start' });
-    fetch(`https://api.github.com/repos/${str}`)
+    fetch(`https://api.github.com/repos/${str}`, {
+      signal: controller.signal,
+    })
       .then((response) => {
         if (response.status === 200) return response.json();
         else

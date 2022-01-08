@@ -3,6 +3,7 @@ const initialState = {
   loading: false,
   Error: false,
   ErrorMessage: '',
+  SuccesfullAdd: false,
 };
 
 const state = (state = initialState, action) => {
@@ -25,6 +26,7 @@ const state = (state = initialState, action) => {
         ...state,
         loading: true,
         Error: false,
+        SuccesfullAdd: false,
       };
     case 'userRepos/loadFromServer/success':
       return {
@@ -32,6 +34,7 @@ const state = (state = initialState, action) => {
         loading: false,
         Repositories: action.payload,
         Error: false,
+        SuccesfullAdd: true,
       };
     case 'Error':
       return {
