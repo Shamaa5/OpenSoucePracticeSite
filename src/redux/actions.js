@@ -1,3 +1,4 @@
+let controller = new AbortController();
 export const loadAllRepositories = () => {
   return (dispatch) => {
     dispatch({ type: 'allRepositories/load/start' });
