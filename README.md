@@ -23,7 +23,5 @@ Backend:
 
 
 
-
-####[Demo](https://open-souce-practice-site-bte7y6hts-shamaa5.vercel.app/)
-To run the project locally, you need to register **_npm i start_**,
-in the directory of the main project, and in the *backend* folder, to start the server.
+####Watch [Demo](https://open-souce-practice-site-bte7y6hts-shamaa5.vercel.app/)
+###### To run the project locally, you need to register **_npm i start_**, in the directory of the main project, and in the *backend* folder, to start the server.
