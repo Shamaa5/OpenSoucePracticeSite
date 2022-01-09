@@ -157,3 +157,8 @@ export const postUserProject = (link, userId, difficulty) => {
       });
   };
 };
+export const SortStartTop = () => {
+  return {
+    type: 'Sort/stars/top',
+  };
+};

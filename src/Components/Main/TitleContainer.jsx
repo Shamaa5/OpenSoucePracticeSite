@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from 'antd/es/typography/Title';
 
-function TitleContainer(props) {
+function TitleContainer() {
   return (
     <div className={'titleContainer'}>
       <Title>Welcome</Title>
