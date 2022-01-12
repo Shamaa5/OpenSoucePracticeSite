@@ -2,7 +2,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { SortDiffTop, SortStarsTop, SortStartBot } from '../../redux/actions';
+import {
+  SortDiffTop,
+  SortStarsTop,
+  SortStartBot,
+} from '../../../redux/actions';
 
 function SortRepositories() {
   const dispatch = useDispatch();

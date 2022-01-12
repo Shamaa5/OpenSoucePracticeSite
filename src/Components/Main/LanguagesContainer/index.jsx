@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import { loadLanguages } from '../../../redux/actions';
 import { Skeleton } from 'antd';
 import Title from 'antd/es/typography/Title';
-import SortRepositories from '../../SortRepositories';
+import SortRepositories from '../SortRepositories';
 
-function LanguagesContainer(props) {
+function LanguagesContainer() {
   const repositories = useSelector(
     (state) => state.repositories.allRepositories,
   );
