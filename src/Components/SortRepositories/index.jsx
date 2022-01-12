@@ -2,47 +2,42 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { SortStartTop } from '../../redux/actions';
+import { SortDiffTop, SortStarsTop, SortStartBot } from '../../redux/actions';
 
 function SortRepositories() {
   const dispatch = useDispatch();
 
   const sortByStarsTop = () => {
-    dispatch(SortStartTop());
+    dispatch(SortStarsTop());
   };
   const sortByStarsBot = () => {
-    dispatch();
+    dispatch(SortStartBot());
   };
   const sortByDifficultyTop = () => {
-    dispatch();
+    dispatch(SortDiffTop());
   };
   const sortByDifficultyBot = () => {
-    dispatch();
+    dispatch(SortDiffTop());
   };
-  const sortByNameTop = () => {
-    dispatch();
-  };
-  const sortByNameBot = () => {
-    dispatch();
-  };
+
   const { SubMenu } = Menu;
   const menu = (
     <Menu>
       <SubMenu key={1} title="Stars">
-        <Menu.Item onClick={sortByStarsBot}>From smallest to largest</Menu.Item>
-        <Menu.Item onClick={sortByStarsTop}>From largest to smallest</Menu.Item>
-      </SubMenu>
-      <SubMenu key={2} title="Difficulty">
-        <Menu.Item onClick={sortByDifficultyBot}>
+        <Menu.Item key={'sortStarsTop'} onClick={sortByStarsBot}>
           From smallest to largest
         </Menu.Item>
-        <Menu.Item key={3} onClick={sortByDifficultyTop}>
+        <Menu.Item key={'sortStarsBot'} onClick={sortByStarsTop}>
           From largest to smallest
         </Menu.Item>
       </SubMenu>
-      <SubMenu key={4} title="Name">
-        <Menu.Item onClick={sortByNameBot}>From smallest to largest</Menu.Item>
-        <Menu.Item onClick={sortByNameTop}>From largest to smallest</Menu.Item>
+      <SubMenu key={2} title="Difficulty">
+        <Menu.Item key={'sortDiffTop'} onClick={sortByDifficultyBot}>
+          From smallest to largest
+        </Menu.Item>
+        <Menu.Item key={'sortDiffBot'} onClick={sortByDifficultyTop}>
+          From largest to smallest
+        </Menu.Item>
       </SubMenu>
     </Menu>
   );

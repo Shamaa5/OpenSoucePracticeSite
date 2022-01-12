@@ -5,7 +5,6 @@ import PopularProjects from './PopularProjects';
 import OtherProjectsContainer from './OtherProjects';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'antd';
-import SortRepositories from '../SortRepositories';
 
 function HomePageContainer() {
   const loading = useSelector((state) => state.repositories.loading);
@@ -22,7 +21,6 @@ function HomePageContainer() {
   return (
     <div>
       <TitleContainer />
-      <SortRepositories />
       <LightProjectsContainer />
       <PopularProjects />
       <OtherProjectsContainer />

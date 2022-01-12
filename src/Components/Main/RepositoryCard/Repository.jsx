@@ -39,7 +39,14 @@ function Repository(props) {
               {props.repo.open_issues}
             </div>
           </li>
-
+          <li>
+            <div>
+              <span className="card-description-title">Difficulty: </span> {''}
+              {props.repo.diffuculty
+                ? props.repo.diffuculty
+                : 'difficulty is not specified'}
+            </div>
+          </li>
           <li>
             <div>
               <span className="card-description-title">GitHub </span>: {''}

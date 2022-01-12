@@ -1,4 +1,3 @@
-let controller = new AbortController();
 export const loadAllRepositories = () => {
   return (dispatch) => {
     dispatch({ type: 'allRepositories/load/start' });
@@ -104,9 +103,7 @@ export const postUserProject = (link, userId, difficulty) => {
   let str = link.replace(/\s+/g, '');
   return (dispatch) => {
     dispatch({ type: 'userRepo/fetchFromGithub/start' });
-    fetch(`https://api.github.com/repos/${str}`, {
-      signal: controller.signal,
-    })
+    fetch(`https://api.github.com/repos/${str}`)
       .then((response) => {
         if (response.status === 200) return response.json();
         else
@@ -157,8 +154,23 @@ export const postUserProject = (link, userId, difficulty) => {
       });
   };
 };
-export const SortStartTop = () => {
+export const SortStarsTop = () => {
   return {
-    type: 'Sort/stars/top',
+    type: 'Sort/stars/Top',
+  };
+};
+export const SortStartBot = () => {
+  return {
+    type: 'Sort/Stars/Bot',
+  };
+};
+export const SortDiffTop = () => {
+  return {
+    type: 'Sort/Difficulty/Top',
+  };
+};
+export const SortDiffBot = () => {
+  return {
+    type: 'Sort/Difficulty/Bot',
   };
 };

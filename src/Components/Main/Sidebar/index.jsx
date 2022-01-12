@@ -9,11 +9,11 @@ function Sidebar() {
   return (
     <Sider className="site-layout-background" width={200}>
       <Menu mode="inline" defaultOpenKeys={['none']}>
-        <SubMenu key="sub1" icon={<UserOutlined />} title="Other ">
-          <Menu.Item key="10">option1</Menu.Item>
-          <Menu.Item key="11">option2</Menu.Item>
-          <Menu.Item key="12">option3</Menu.Item>
-          <Menu.Item key="13">option4</Menu.Item>
+        <SubMenu key="sub1" icon={<UserOutlined />} title="Projects">
+          <Menu.Item key="10">Я</Menu.Item>
+          <Menu.Item key="11">Не </Menu.Item>
+          <Menu.Item key="12">Знаю</Menu.Item>
+          <Menu.Item key="13">Что добавить</Menu.Item>
         </SubMenu>
 
         <SubMenu key="sub2" icon={<SettingOutlined />} title="Languages">
