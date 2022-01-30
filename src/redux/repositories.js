@@ -4,6 +4,7 @@ const initialState = {
   loadingUserRepository: false,
   loading: false,
   loadingRepository: false,
+  Error: false,
   sortStarsTop: false,
   sortStarsBot: false,
   sortDiffTop: false,
@@ -45,28 +46,28 @@ const state = (state = initialState, action) => {
         repository: [action.payload],
         loadingRepository: false,
       };
-    case 'Sort/stars/Top':
+    case 'Sort/Stars/Top':
+      const newArr = state.allRepositories.sort((a, b) => {
+        return b.stargazers_count - a.stargazers_count;
+      });
       return {
         ...state,
         sortStarsTop: true,
         sortStarsBot: false,
         sortDiffBot: false,
-        allRepositories: [
-          state.allRepositories.sort((a, b) => {
-            return b.stargazers_count - a.stargazers_count;
-          }),
-        ],
+        allRepositories: newArr,
       };
-    case 'Sort/stars/Bot':
+    case 'Sort/Stars/Bot':
+      const newArr2 = state.allRepositories.sort((a, b) => {
+        return a.stargazers_count - b.stargazers_count;
+      });
       return {
         ...state,
         sortStarsTop: false,
         sortStarsBot: true,
         sortDiffTop: false,
         sortDiffBot: false,
-        allRepositories: state.allRepositories.sort((a, b) => {
-          return a.stargazers_count - b.stargazers_count;
-        }),
+        allRepositories: newArr2,
       };
     case 'Sort/Difficulty/Top':
       return {

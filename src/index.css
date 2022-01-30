@@ -147,6 +147,12 @@ ul {
   box-sizing: border-box;
   overflow: hidden;
   margin-bottom: 5px;
+  height: 85px;
+}
+.card-difficulty {
+  font-style: italic;
+  width: 90%;
+  box-sizing: border-box;
 }
 .RepoCardOwnerAvatar {
   width: 300px;

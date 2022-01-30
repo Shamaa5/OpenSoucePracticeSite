@@ -7,6 +7,7 @@ function OtherProjectsContainer(props) {
   const repositories = useSelector(
     (state) => state.repositories.allRepositories,
   );
+
   return (
     <div className={'lightProjectsContainer'}>
       <Title level={3} className={'ProjectTypeTitle'}>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'antd';
 import { ForkOutlined, StarFilled } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import PropTypes, { number } from 'prop-types';
 
-function UserProject(props) {
+function LightProject(props) {
   return (
-    <NavLink to={`/repository/${props.repo.id}`}>
+    <Link to={`/repository/${props.repo.id}`}>
       <Card
         hoverable
         title={props.repo.name}
@@ -26,18 +26,18 @@ function UserProject(props) {
         <div className="card-forks">
           <ForkOutlined />: {props.repo.forks_count}
         </div>
-        <div className="card-description"> {props.repo.description} </div>
         <div>difficulty: {props.repo.difficulty} </div>
+        <div className="card-description"> {props.repo.description} </div>
       </Card>
-    </NavLink>
+    </Link>
   );
 }
-UserProject.propTypes = {
+LightProject.propTypes = {
   repo: PropTypes.object,
   name: PropTypes.string,
   html_url: PropTypes.string,
   stargazers_count: PropTypes.number,
   description: PropTypes.string,
-  forks_count: PropTypes.number,
+  forks_count: number,
 };
-export default UserProject;
+export default LightProject;

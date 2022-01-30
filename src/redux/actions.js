@@ -156,7 +156,7 @@ export const postUserProject = (link, userId, difficulty) => {
 };
 export const SortStarsTop = () => {
   return {
-    type: 'Sort/stars/Top',
+    type: 'Sort/Stars/Top',
   };
 };
 export const SortStartBot = () => {
