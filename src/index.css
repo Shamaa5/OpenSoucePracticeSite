@@ -251,3 +251,13 @@ h1 {
 .sort {
   align-self: flex-start;
 }
+.Button_star_orange {
+  color: #f1b667;
+}
+.Card {
+  width: 280px;
+  margin-bottom: 20px;
+  background: white;
+  height: 250px;
+  box-sizing: border-box;
+}

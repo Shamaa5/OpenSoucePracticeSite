@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import PropTypes, { number } from 'prop-types';
+import PropTypes from 'prop-types';
 import { ForkOutlined, StarFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
@@ -11,16 +11,10 @@ function OtherProject(props) {
         hoverable
         title={props.repo.name}
         bordered={false}
-        style={{
-          width: 280,
-          marginBottom: 20,
-          background: 'white',
-          height: 250,
-          boxSizing: 'border-box',
-        }}
+        className={'Card'}
       >
         <div className="card-stars">
-          <StarFilled style={{ color: '#f1b667' }} />:{' '}
+          <StarFilled className={'Button_star_orange'} />:{' '}
           {props.repo.stargazers_count}
         </div>
         <div className="card-forks">
@@ -37,6 +31,6 @@ OtherProject.propTypes = {
   html_url: PropTypes.string,
   stargazers_count: PropTypes.number,
   description: PropTypes.string,
-  forks_count: number,
+  forks_count: PropTypes.number,
 };
 export default OtherProject;

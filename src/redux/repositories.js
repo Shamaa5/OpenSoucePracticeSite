@@ -57,6 +57,11 @@ const state = (state = initialState, action) => {
         sortDiffBot: false,
         allRepositories: newArr,
       };
+    case 'Error':
+      return {
+        ...state,
+        Error: true,
+      };
     case 'Sort/Stars/Bot':
       const newArr2 = state.allRepositories.sort((a, b) => {
         return a.stargazers_count - b.stargazers_count;

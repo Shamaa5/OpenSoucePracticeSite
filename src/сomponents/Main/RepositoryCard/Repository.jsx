@@ -21,7 +21,7 @@ function Repository(props) {
 
           <li>
             <div>
-              <StarFilled style={{ color: '#f1b667' }} />:{' '}
+              <StarFilled className={'Button_star_orange'} />:{' '}
               {props.repo['stargazers_count']}
             </div>
           </li>
