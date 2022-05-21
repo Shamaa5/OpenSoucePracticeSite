@@ -1,4 +1,4 @@
-import Navigate from './Navigate/Navigate';
+import Navigation from './Navigation/index';
 import React from 'react';
 import Logo from './Logo/index';
 import { Col, Row } from 'antd';
@@ -9,7 +9,7 @@ function HeaderContainer() {
       <Col span={24}>
         <header>
           <Logo />
-          <Navigate />
+          <Navigation />
         </header>
       </Col>
     </Row>

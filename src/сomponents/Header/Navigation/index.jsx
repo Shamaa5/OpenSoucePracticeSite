@@ -4,7 +4,7 @@ import UserSettings from '../UserSettings';
 import SingIn from './SingIn';
 import { useSelector } from 'react-redux';
 
-function Navigate() {
+function Navigation() {
   const isAuth = useSelector((state) => state.auth.isAuth);
   return (
     <ul className={'Nav'}>
@@ -19,4 +19,4 @@ function Navigate() {
   );
 }
 
-export default Navigate;
+export default Navigation;

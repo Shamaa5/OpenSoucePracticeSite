@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { loadLanguages } from '../../../redux/actions';
 import { Skeleton } from 'antd';
 import Title from 'antd/es/typography/Title';
-import SortRepositories from '../SortRepositories';
 
 function LanguagesContainer() {
   const repositories = useSelector(
@@ -32,7 +31,6 @@ function LanguagesContainer() {
       <Title level={3} className={'ProjectTypeTitle'}>
         Most popular {params.id} projects
       </Title>
-      <SortRepositories />
       <div className="cards-container">
         {repositories.map((repo) => {
           return <LanguageContainer repo={repo} key={repo.id} />;

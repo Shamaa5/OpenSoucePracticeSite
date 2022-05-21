@@ -50,9 +50,7 @@ function UserProjects() {
         </Title>
         <div className="cards-container">
           {repository.length < 1 ? (
-            <div style={{ fontSize: 17, fontWeight: 500 }}>
-              You have no added projects yet :(
-            </div>
+            <h2>You have no added projects yet :(</h2>
           ) : (
             repository.map((repo) => {
               return <UserProject repo={repo} key={repo.id} />;

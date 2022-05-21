@@ -13,7 +13,7 @@ function Logo() {
             <div className={'logo'}>
               <img src={logo} alt="" />
             </div>
-            <Text level={1} style={{ color: 'white' }}>
+            <Text level={1} className={'White'}>
               ShamaInc
             </Text>
           </div>

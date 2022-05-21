@@ -83,9 +83,9 @@ function AddNewProject(props) {
               ]}
             >
               <Radio.Group onChange={(e) => setDifficulty(e.target.value)}>
-                <Radio value={'Easy'}>Easy</Radio>
-                <Radio value={'Medium'}>Medium</Radio>
-                <Radio value={'Hard'}>Hard</Radio>
+                <Radio value={1}>Easy</Radio>
+                <Radio value={2}>Medium</Radio>
+                <Radio value={3}>Hard</Radio>
               </Radio.Group>
             </Form.Item>
           </div>

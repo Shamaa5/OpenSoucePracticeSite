@@ -46,63 +46,12 @@ const state = (state = initialState, action) => {
         repository: [action.payload],
         loadingRepository: false,
       };
-    case 'Sort/Stars/Top':
-      const newArr = state.allRepositories.sort((a, b) => {
-        return b.stargazers_count - a.stargazers_count;
-      });
-      return {
-        ...state,
-        sortStarsTop: true,
-        sortStarsBot: false,
-        sortDiffBot: false,
-        allRepositories: newArr,
-      };
+
     case 'Error':
       return {
         ...state,
         Error: true,
       };
-    case 'Sort/Stars/Bot':
-      const newArr2 = state.allRepositories.sort((a, b) => {
-        return a.stargazers_count - b.stargazers_count;
-      });
-      return {
-        ...state,
-        sortStarsTop: false,
-        sortStarsBot: true,
-        sortDiffTop: false,
-        sortDiffBot: false,
-        allRepositories: newArr2,
-      };
-    case 'Sort/Difficulty/Top':
-      return {
-        ...state,
-        sortStarsTop: false,
-        sortStarsBot: false,
-        sortDiffTop: true,
-        sortDiffBot: false,
-        allRepositories: state.allRepositories.sort((a, b) => {
-          if (a.stargazers_count) {
-            return a.stargazers_count - b.stargazers_count;
-          }
-          return state.allRepositories;
-        }),
-      };
-    case 'Sort/Difficulty/Bot':
-      return {
-        ...state,
-        sortStarsTop: false,
-        sortStarsBot: false,
-        sortDiffTop: false,
-        sortDiffBot: true,
-        allRepositories: state.allRepositories.sort((a, b) => {
-          if (a.stargazers_count) {
-            return b.stargazers_count - a.stargazers_count;
-          }
-          return state.allRepositories;
-        }),
-      };
-
     default:
       return state;
   }

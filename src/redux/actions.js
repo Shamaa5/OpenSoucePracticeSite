@@ -108,71 +108,50 @@ export const postUserProject = (link, userId, difficulty) => {
         return response.json();
       })
       .then((repoInfo) => {
-        if (repoInfo.status === 200) {
-          dispatch({
-            type: 'userRepo/fetchFromGithub/success',
-            payload: repoInfo,
-          });
-          dispatch({ type: 'userRepo/postToServer/start' });
+        dispatch({
+          type: 'userRepo/fetchFromGithub/success',
+          payload: repoInfo,
+        });
+        dispatch({ type: 'userRepo/postToServer/start' });
 
-          fetch(`https://61d5c3b82b4f730017a82a41.mockapi.io//Projects`, {
-            method: 'POST',
-            body: JSON.stringify({
-              name: repoInfo.name,
-              full_name: repoInfo.full_name,
-              id: repoInfo.id,
-              description: repoInfo.description,
-              forks_count: repoInfo.forks_count,
-              open_issues: repoInfo.open_issues,
-              html_url: repoInfo.html_url,
-              created_at: repoInfo.created_at,
-              pushed_at: repoInfo.pushed_at,
-              watchers: repoInfo.watchers,
-              Added_user_id: userId,
-              avatar_url: repoInfo.owner.avatar_url,
-              homepage: repoInfo.homepage,
-              difficulty: difficulty,
-            }),
-            headers: {
-              'Content-type': 'application/json; charset=UTF-8',
-            },
-          })
-            .then((response) => response.json())
-            .then((json) => {
-              dispatch({
-                type: 'userRepo/postToServer/success',
-                payload: json,
-              });
-            })
-            .catch((error) => {
-              dispatch({ type: 'Error', payload: error });
+        fetch(`https://61d5c3b82b4f730017a82a41.mockapi.io/Projects`, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: repoInfo.name,
+            full_name: repoInfo.full_name,
+            id: repoInfo.id,
+            description: repoInfo.description,
+            forks_count: repoInfo.forks_count,
+            open_issues: repoInfo.open_issues,
+            html_url: repoInfo.html_url,
+            created_at: repoInfo.created_at,
+            pushed_at: repoInfo.pushed_at,
+            watchers: repoInfo.watchers,
+            Added_user_id: userId,
+            avatar_url: repoInfo.owner.avatar_url,
+            homepage: repoInfo.homepage,
+            difficulty: difficulty,
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => {
+            dispatch({
+              type: 'userRepo/postToServer/success',
+              payload: json,
             });
-        } else {
-          dispatch({
-            type: 'Error',
-            payload: 'could not find repository',
+          })
+          .catch((error) => {
+            dispatch({ type: 'Error', payload: error });
           });
-        }
+      })
+      .catch(() => {
+        dispatch({
+          type: 'Error',
+          payload: 'could not find repository',
+        });
       });
-  };
-};
-export const SortStarsTop = () => {
-  return {
-    type: 'Sort/Stars/Top',
-  };
-};
-export const SortStartBot = () => {
-  return {
-    type: 'Sort/Stars/Bot',
-  };
-};
-export const SortDiffTop = () => {
-  return {
-    type: 'Sort/Difficulty/Top',
-  };
-};
-export const SortDiffBot = () => {
-  return {
-    type: 'Sort/Difficulty/Bot',
   };
 };

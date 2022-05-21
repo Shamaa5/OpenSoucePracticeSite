@@ -7,16 +7,11 @@ function Main() {
   const { Content } = Layout;
 
   return (
-    <Layout style={{ minHeight: '85vh' }}>
-      <Content style={{ padding: '0 50px' }}>
-        <Layout
-          className="site-layout-background"
-          style={{ padding: '24px 0' }}
-        >
+    <Layout className={'Layout-main'}>
+      <Content className={'Content-main'}>
+        <Layout className="site-layout-background">
           <Sidebar />
-          <Content
-            style={{ padding: '0 30px', minHeight: 280, margin: '0 auto' }}
-          >
+          <Content className={'Content-daughter'}>
             <ContentRoutes />
           </Content>
         </Layout>
