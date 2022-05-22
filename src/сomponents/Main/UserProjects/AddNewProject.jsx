@@ -64,14 +64,14 @@ function AddNewProject(props) {
               allowClear
               onPressEnter={addRepo}
               size="large"
-              style={{ width: '30%', marginBottom: 20 }}
+              className={'Input-new-project'}
               onChange={(e) => setLink(e.target.value)}
               value={link}
             />
           </Form.Item>
           {Error && <div className="Error">{ErrorMessage}</div>}
 
-          <div style={{ marginBottom: 30 }}>
+          <div className={'project-difficulty'}>
             <h4>Please, choose difficulty of project</h4>
             <Form.Item
               name="difficulty"

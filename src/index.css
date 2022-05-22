@@ -283,3 +283,10 @@ h1 {
   margine: 50px auto;
   font-size: 30px;
 }
+.Input-new-project {
+  width: 30%;
+  margin-bottom: 20px;
+}
+.project-difficulty {
+  margin-bottom: 30px;
+}
